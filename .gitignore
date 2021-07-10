@@ -32,5 +32,7 @@
 *.app
 
 # ProjectWaaagh Files
-Sources/
 .vs/
+.vscode/
+build/
+
