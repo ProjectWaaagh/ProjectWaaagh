@@ -20,13 +20,6 @@ project(ProjectWaaagh)
 # Set CMake Macro Directory
 list(APPEND CMAKE_MODULE_PATH
     "${CMAKE_CURRENT_SOURCE_DIR}/CMake/Macros")
-list(APPEND CMAKE_MODULE_PATH
-C:/Users/monop/.shizo/Development/vcpkg/scripts/cmake)
-
-# Set vcpkg Directory
-INCLUDE_DIRECTORIES(C:/Users/monop/.shizo/Development/vcpkg/installed/x86-windows/include)
-LINK_DIRECTORIES(C:/Users/monop/.shizo/Development/vcpkg/installed/x86-windows/lib)
-
 
 include(CheckCXXSourceRuns)
 include(CheckIncludeFiles)
@@ -38,6 +31,7 @@ include(AutoCollect)
 include(GroupSources)
 
 find_package(MySQL)
+find_package(Git)
 
 
 add_subdirectory(Sources)
