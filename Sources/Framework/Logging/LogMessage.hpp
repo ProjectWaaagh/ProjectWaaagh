@@ -14,12 +14,39 @@
 #include <ctime>
 
 struct LogMessage {
+
+    /**
+     * @brief Construct a new Log Message object
+     * 
+     * @param mlogLevel The logging level enumeration
+     * @param mtype     The Logging type enumartion
+     * @param mlogText  The Loggin Text
+     */
     LogMessage(LogLevel mlogLevel, std::string const& mtype, std::string&& mlogText);
+
+    /**
+     * @brief Construct a new Log Message object
+     * 
+     * @param mlogLevel The logging level enumeration
+     * @param mtype     The Logging type enumartion
+     * @param mlogText  The Loggin Text
+     * @param mlogParam The Logggin Parameters
+     */
     LogMessage(LogLevel mlogLevel, std::string const& mtype, std::string&& mlogText, std::string&& mlogParam1);
 
+    /**
+     * @brief Default deconstructor
+     * 
+     */
     LogMessage(LogMessage const& /*OTHER*/) = delete;
     LogMessage& operator = (LogMessage const& /*OTHER*/) = delete;
 
+    /**
+     * @brief Get the Time String object
+     * 
+     * @param time 
+     * @return time std::string 
+     */
     static std::string GetTimeString(time_t time);
     std::string GetTimeString() const;
 
