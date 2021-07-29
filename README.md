@@ -1,2 +1,0 @@
-# ProjectWaaagh
-Warhammer Online Emulator
