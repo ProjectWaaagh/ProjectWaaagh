@@ -63,9 +63,9 @@ target_link_libraries(Framework
         fmt
         #g3dlib
         #Detour
-        #sfmt
-        #utf8cpp
-        #openssl
+        sfmt
+        utf8cpp
+        openssl
         #valgrind
         threads
         #jemalloc

@@ -25,7 +25,7 @@ add_library(projectWaaagh-feature-interface INTERFACE)
 
 target_compile_features(projectWaaagh-feature-interface
   INTERFACE
-    cxx_std_17
+    cxx_std_23
     cxx_alias_templates
     cxx_auto_type
     cxx_constexpr

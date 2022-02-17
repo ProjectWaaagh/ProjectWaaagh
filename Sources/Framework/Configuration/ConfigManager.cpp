@@ -1,4 +1,5 @@
 #include "ConfigManager.hpp"
+#include "Log.hpp"
 #include "StringConverter.hpp"
 #include "Utilities.hpp"
 
@@ -119,12 +120,12 @@ T ConfigManager::GetValueDefault(std::string const& configName, T defaultValue, 
 	}
 	catch (propertyTree::ptree_bad_path const&) {
 		if (!quiet) {
-			printf("Server.Loading - Missing configName %s in configFile %s, add \"%s = %s\" to this file",
+			PRW_LOG_WARN("Server.Loading", "Missing configName %s in configFile %s, add \"%s = %s\" to this file",
 				configName.c_str(), m_ConfigFile.c_str(), configName.c_str(), std::to_string(defaultValue).c_str());
 		}
 	}
 	catch (propertyTree::ptree_bad_data const&) {
-		printf("Server.Loading - Bad value defines for configName %s in configFile %s, going to use %s as defaultValue.",
+        PRW_LOG_ERROR("Server.Loading" "Bad value defines for configName %s in configFile %s, going to use %s as defaultValue.",
 			configName.c_str(), m_ConfigFile.c_str(), std::to_string(defaultValue).c_str());
 	}
 
@@ -140,13 +141,13 @@ std::string ConfigManager::GetValueDefault<std::string>(std::string const& confi
 	catch (propertyTree::ptree_bad_path const&) {
 		if (!quiet) {
 			//TODO: Logging Service here
-			printf("Server.Loading - Missing configName '%s' in configFile '%s', add '%s = %s' to this file.",
+            PRW_LOG_WARN("Server.Loading" "Missing configName '%s' in configFile '%s', add '%s = %s' to this file.",
 				configName.c_str(), m_ConfigFile.c_str(), configName.c_str(), defaultValue.c_str());
 		}
 	}
 	catch (propertyTree::ptree_bad_data const&) {
 		//TODO: Logging Service here
-		printf("Server.Loading - Bad Value defined for configName '%s' in configFile '%s', going to use '%s' as defaultValue.",
+        PRW_LOG_ERROR("Server.Loading" "Bad Value defined for configName '%s' in configFile '%s', going to use '%s' as defaultValue.",
 			configName.c_str(), m_ConfigFile.c_str(), defaultValue.c_str());
 	}
 
@@ -170,7 +171,7 @@ bool ConfigManager::GetBoolDefault(std::string const& configName, bool defaultVa
 		return *boolValue;
 	else {
 		//TODO: Logging Service here.
-		printf("Server.Loading - Bad value defined for configName '%s' in configFile '%s', going to use '%s' as defaultValue.",
+        PRW_LOG_ERROR("Server.Loading" "Bad value defined for configName '%s' in configFile '%s', going to use '%s' as defaultValue.",
 			configName.c_str(), m_ConfigFile.c_str(), defaultValue ? "true" : "false");
 		return defaultValue;
 	}

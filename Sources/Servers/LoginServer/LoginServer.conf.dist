@@ -1,0 +1,71 @@
+##################################################
+# ProjectWaaagh LoginServer configuration File   #
+##################################################
+[LoginServer]
+
+####################################################################################################
+#   Section Index
+#
+#       ~ Example Config
+#       ~ LoginServer Settings
+#       ~ MySQL Settings
+#       ~ Cryptography
+#       ~ Update Settings
+#       ~ Logging System Settings
+#
+####################################################################################################
+
+####################################################################################################
+#   LoginServer Settings
+#
+#   LogsDir
+#       Description : Logs Directory setting.
+#       Important   : LogsDir needs to be quoted (""), as the string might contain space characters.
+#                     Logs directory must exits, or log file creation will be disabled.
+#
+#       Default     : "" - (Log files will be stored in the current path)
+
+LogsDir = ""
+
+#
+#   CertificatesFile
+#       Description     : Certificates File.
+#       Example         : "/etc/ssl/certs/LoginServer.cert.pem"
+#       Default         : "./LoginServer.cert.pem"
+CertificatesFile = "./LoginServer.cert.pem"
+
+#
+#   PrivateKeyFile
+#       Description     : Private Key File.
+#       Example         : "/etc/ssl/private/LoginServer.key.pem"
+#       Default         : "./LoginServer.key.pem"
+PrivateKeyFile = "./LoginServer.key.pem"
+
+#
+#   SourceDirectory
+#       Description     : The path to your ProjectWaaagh source directory.
+#                         If the path is left empty. the build-in CMAKE_SOURCE_DIR is used.
+#       Example         : "../ProjectWaaagh"
+#       Default         : ""
+SourceDirectory = ""
+
+#
+#   MySQLExecutable
+#       Description     : The path of your MySQL CLI binary.
+#                         If the path is left empty, the build-in path from CMAKE is used.
+#       Example         : "C:/Program Files/MySQL/MySQL Server 8.0/bin/mysql.exe"
+#                         "mysql.exe"
+#                         "/usr/bin/mysql"
+#       Default         : ""
+MySQLExecutable = ""
+
+####################################################################################################
+#   MySQL Settings
+#
+#   LoginDatabaseInfo
+#       Description     : Database connection settings for the realm server.
+#       Example         : "hostname;port;username;password;database:ssl"        - Default MySQL Connection
+#                         ".;someNumber;username;password;database"             - Use named pipes on Windows
+#                         ".;/path/to/unixSocket;username;password;database"    - Use Unix sockets on Linux
+#       Default         : "127.0.0.1;3306;project;waaagh;loginDatabase"
+LoginDatabaseInfo = "127.0.0.1;3306;project;waaagh;loginDatabase"
